@@ -71,7 +71,33 @@ Images
 Simple 1:n relation
 -------------------
 
-This combines a table companies with persons (employees):
+This combines a table "companies" with a table "employee":
+
+.. code-block:: php
+
+    'employees' => [
+        'exclude' => 1,
+        'label' => 'LLL:EXT:myextension/locallang_db.xml:company.employees',
+        'config' => [
+            'type' => 'inline',
+            'foreign_table' => 'employee',
+            'foreign_field' => 'parentid',
+            'maxitems' => 10,
+            'appearance' => [
+                'collapseAll' => 1,
+                'expandSingle' => 1,
+            ],
+        ],
+    ],
+
+
+.. _columns-inline-examples-weak-entity:
+
+Weak Entity
+-----------
+
+This combines a table "companies" with a table "person" as employees. With the field "parenttable" it is possible to define
+relations from "person" to other tables.
 
 .. code-block:: php
 
